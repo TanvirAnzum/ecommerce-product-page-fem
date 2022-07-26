@@ -1,5 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+//colors
+
+// ### Primary
+
+$Orange: hsl(26, 100%, 55%);
+$Pale-orange: hsl(25, 100%, 94%);
+
+// ### Neutral
+
+$Very-dark-blue: hsl(220, 13%, 13%);
+$Dark-grayish-blue: hsl(219, 9%, 45%);
+$Grayish-blue: hsl(220, 14%, 75%);
+$Light-grayish-blue: hsl(223, 64%, 98%);
+$White: hsl(0, 0%, 100%);
+$Black: hsl(0, 0%, 0%); ///(with 75% opacity for lightbox background)
+
+.App {
+  width: 100%;
+  height: 100vh;
+  background-color: $White;
+  display: grid;
+  align-items: start;
+  justify-content: center;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: 'a a' 'b c';
+}
+
+.Nav {
+  grid-area: a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 12vh;
+  width: 80vw;
+  position: relative;
+
+  h1 {
+    font-weight: 700;
+    font-size: 2em;
+  }
+
+  ul {
+    list-style-type: none;
+    width: 60%;
+    display: flex;
+    gap: 4%;
+
+    li {
+      line-height: 2em;
+      position: relative;
+      color: $Dark-grayish-blue;
+
+      &:hover {
+        cursor: pointer;
+        color: $Black;
+      }
+
+      &:hover::after {
+        display: block;
+      }
+    }
+
+    li::after {
+      position: absolute;
+      content: '';
+      height: 5px;
+      width: 100%;
+      background-color: $Orange;
+      left: 0;
+      bottom: -2.4em;
+      display: none;
+    }
+  }
+
+  .cart {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+
+    .cart-img:hover {
+      cursor: pointer;
+    }
+
+    .cart-img {
+      position: relative;
+
+      .cart-area {
+        position: absolute;
+        width: 24em;
+        height: 18em;
+        left: calc(0% - 12em);
+        top: 3.5em;
+        border-radius: 0.3em;
+        background-color: $White;
+        box-shadow: 0px 6px 15px 13px rgba(0, 0, 0, 0.12);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+
+        h1 {
+          font-size: 1em;
+          padding-left: 1em;
+        }
+
+        .cart-line {
+          width: 100%;
+        }
+
+        .cart-product {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 90%;
+          margin-inline: auto;
+
+          .cart-p-img {
+            width: 4em;
+            border-radius: 0.3em;
+          }
+
+          .deleteIcon {
+            width: 1em;
+            height: 1.2em;
+          }
+
+          .cart-product-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 4em;
+
+            p {
+              color: $Dark-grayish-blue;
+            }
+
+            .total {
+              font-weight: 700;
+              color: $Black;
+            }
+          }
+        }
+
+        .checkout-btn {
+          width: 90%;
+          height: 4em;
+          margin-inline: auto;
+          font-size: 1em;
+          font-weight: 700;
+          border-radius: 0.5em;
+          border: none;
+          background-color: $Orange;
+          color: $White;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .profile-img {
+      width: 3em;
+      img {
+        width: 100%;
+
+        &:hover {
+          cursor: pointer;
+          outline: 2px solid $Orange;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  .line {
+    position: absolute;
+    height: 1px;
+    border: none;
+    width: 100%;
+    bottom: 0;
+    background-color: $Grayish-blue;
+  }
+}
+
+.ImageSlider {
+  width: 30em;
+  height: 66vh;
+
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .display-img {
+    width: 100%;
+    height: 75%;
+    border-radius: 0.5em;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5em;
+    }
+  }
+
+  .select-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 12vh;
+
+    img {
+      width: 6em;
+
+      border-radius: 0.4em;
+
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.active-img {
+  outline: 4px solid $Orange;
+  opacity: 0.5;
 }

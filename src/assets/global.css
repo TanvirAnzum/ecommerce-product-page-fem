@@ -1,5 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.App {
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(0deg, 0%, 100%);
+  display: grid;
+  align-items: start;
+  justify-content: center;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: "a a" "b c";
+}
+
+.Nav {
+  grid-area: a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 12vh;
+  width: 80vw;
+  position: relative;
+}
+.Nav h1 {
+  font-weight: 700;
+  font-size: 2em;
+}
+.Nav ul {
+  list-style-type: none;
+  width: 60%;
+  display: flex;
+  gap: 4%;
+}
+.Nav ul li {
+  line-height: 2em;
+  position: relative;
+  color: hsl(219deg, 9%, 45%);
+}
+.Nav ul li:hover {
+  cursor: pointer;
+  color: hsl(0deg, 0%, 0%);
+}
+.Nav ul li:hover::after {
+  display: block;
+}
+.Nav ul li::after {
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 100%;
+  background-color: hsl(26deg, 100%, 55%);
+  left: 0;
+  bottom: -2.4em;
+  display: none;
+}
+.Nav .cart {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+  justify-content: center;
+}
+.Nav .cart .cart-img:hover {
+  cursor: pointer;
+}
+.Nav .cart .cart-img {
+  position: relative;
+}
+.Nav .cart .cart-img .cart-area {
+  position: absolute;
+  width: 24em;
+  height: 18em;
+  left: calc(0% - 12em);
+  top: 3.5em;
+  border-radius: 0.3em;
+  background-color: hsl(0deg, 0%, 100%);
+  box-shadow: 0px 6px 15px 13px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.Nav .cart .cart-img .cart-area h1 {
+  font-size: 1em;
+  padding-left: 1em;
+}
+.Nav .cart .cart-img .cart-area .cart-line {
+  width: 100%;
+}
+.Nav .cart .cart-img .cart-area .cart-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin-inline: auto;
+}
+.Nav .cart .cart-img .cart-area .cart-product .cart-p-img {
+  width: 4em;
+  border-radius: 0.3em;
+}
+.Nav .cart .cart-img .cart-area .cart-product .deleteIcon {
+  width: 1em;
+  height: 1.2em;
+}
+.Nav .cart .cart-img .cart-area .cart-product .cart-product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 4em;
+}
+.Nav .cart .cart-img .cart-area .cart-product .cart-product-info p {
+  color: hsl(219deg, 9%, 45%);
+}
+.Nav .cart .cart-img .cart-area .cart-product .cart-product-info .total {
+  font-weight: 700;
+  color: hsl(0deg, 0%, 0%);
+}
+.Nav .cart .cart-img .cart-area .checkout-btn {
+  width: 90%;
+  height: 4em;
+  margin-inline: auto;
+  font-size: 1em;
+  font-weight: 700;
+  border-radius: 0.5em;
+  border: none;
+  background-color: hsl(26deg, 100%, 55%);
+  color: hsl(0deg, 0%, 100%);
+  cursor: pointer;
+}
+.Nav .cart .profile-img {
+  width: 3em;
+}
+.Nav .cart .profile-img img {
+  width: 100%;
+}
+.Nav .cart .profile-img img:hover {
+  cursor: pointer;
+  outline: 2px solid hsl(26deg, 100%, 55%);
+  border-radius: 50%;
+}
+.Nav .line {
+  position: absolute;
+  height: 1px;
+  border: none;
+  width: 100%;
+  bottom: 0;
+  background-color: hsl(220deg, 14%, 75%);
+}
+
+.ImageSlider {
+  width: 30em;
+  height: 66vh;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ImageSlider .display-img {
+  width: 100%;
+  height: 75%;
+  border-radius: 0.5em;
+}
+.ImageSlider .display-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5em;
+}
+.ImageSlider .select-img {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 12vh;
+}
+.ImageSlider .select-img img {
+  width: 6em;
+  border-radius: 0.4em;
+}
+.ImageSlider .select-img img:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.active-img {
+  outline: 4px solid hsl(26deg, 100%, 55%);
+  opacity: 0.5;
 }/*# sourceMappingURL=global.css.map */
