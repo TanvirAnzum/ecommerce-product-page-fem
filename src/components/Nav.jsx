@@ -7,6 +7,13 @@ import profileImage from '../images/image-avatar.png';
 
 function Nav(props) {
 
+  const cartHandler = () => {
+    const elm = document.querySelector('.cart-area');
+    console.log(elm.style.display);
+    if (elm.style.display === 'none') elm.style.display = 'flex';
+    else elm.style.display = 'none';
+
+  }
 
   return (
     <div className='Nav'>
@@ -22,16 +29,16 @@ function Nav(props) {
       </ul>
       <div className="cart">
         <div className="cart-img">
-          <img src={iconCart} alt="icon cart" />
+          <img onClick={cartHandler} src={iconCart} alt="icon cart" />
 
           <div className="cart-area">
             <h1>Cart</h1>
-            <hr className="cart-line"/>
+            <hr className="cart-line" />
             <div className="cart-product">
               <img className="cart-p-img" src={props.cartImg} alt="product img" />
               <div className="cart-product-info">
                 <p>Fall Limited Edition Sneakers</p>
-                <p>$125.00×{props.itemCount}  <span className='total'>${125.00 * Number(props.itemCount)}</span></p>
+                <p>$125.00×{props.itemCounter}  <span className='total'>${125.00 * Number(props.itemCounter)}</span></p>
               </div>
               <img className="deleteIcon" src={iconDelete} alt="delete icon" />
             </div>
@@ -40,16 +47,16 @@ function Nav(props) {
             </button>
           </div>
 
-          
+
         </div>
 
         <div className="profile-img">
           <img src={profileImage} alt="avatar img" />
         </div>
       </div>
-      
-      <hr  className="line"/>
-      
+
+      <hr className="line" />
+
     </div>
   )
 }

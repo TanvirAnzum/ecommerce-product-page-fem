@@ -26,6 +26,7 @@ $Black: hsl(0, 0%, 0%); ///(with 75% opacity for lightbox background)
 .App {
   width: 100%;
   height: 100vh;
+  position: relative;
   background-color: $White;
   display: grid;
   align-items: start;
@@ -105,7 +106,7 @@ $Black: hsl(0, 0%, 0%); ///(with 75% opacity for lightbox background)
         background-color: $White;
         box-shadow: 0px 6px 15px 13px rgba(0, 0, 0, 0.12);
         z-index: 10;
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: flex-start;
@@ -195,7 +196,7 @@ $Black: hsl(0, 0%, 0%); ///(with 75% opacity for lightbox background)
 .ImageSlider {
   width: 30em;
   height: 66vh;
-
+  align-self: center;
   border-radius: 0.5em;
   display: flex;
   flex-direction: column;
@@ -229,9 +230,177 @@ $Black: hsl(0, 0%, 0%); ///(with 75% opacity for lightbox background)
       }
     }
   }
+
+  .modal {
+    position: absolute;
+    width: 34em;
+    height: 40em;
+    top: calc(50% - 20em);
+    left: calc(50% - 18em);
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(100px);
+
+    .close-btn {
+      align-self: flex-end;
+      cursor: pointer;
+    }
+
+    .display-img {
+      position: relative;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      width: 3em;
+      height: 3em;
+      border: 1px solid red;
+      top: calc(50% - 1.5em);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 50%;
+      background-color: $White;
+
+      img {
+        width: 1em;
+        height: 1.4em;
+      }
+    }
+
+    .prev {
+      left: calc(0% - 1.5em);
+    }
+
+    .next {
+      right: calc(0% - 1.5em);
+    }
+
+    .select-img {
+      width: 90%;
+    }
+  }
 }
 
 .active-img {
   outline: 4px solid $Orange;
   opacity: 0.5;
+}
+
+.Content {
+  width: 30em;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+
+  h3 {
+    color: $Orange;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.2em;
+  }
+
+  h1 {
+    color: $Black;
+    font-size: 3em;
+  }
+
+  p {
+    color: $Dark-grayish-blue;
+    font-size: 1em;
+    line-height: 1.6;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    line-height: 1;
+
+    position: relative;
+
+    &::after {
+      content: '50%';
+      position: absolute;
+      font-size: 0.75em;
+      background-color: $Pale-orange;
+      color: $Orange;
+      line-height: 1.5em;
+      width: 2.5em;
+      text-align: center;
+      border-radius: 0.3em;
+      left: 5.5em;
+    }
+  }
+
+  h4 {
+    color: $Dark-grayish-blue;
+    text-decoration: line-through;
+    position: relative;
+    top: -0.8em;
+  }
+
+  .content-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4em;
+
+    .content-counter {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 100%;
+      width: 12em;
+      background-color: $Light-grayish-blue;
+      border-radius: 0.5em;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      img {
+        width: 0.5em;
+        height: 0.5em;
+      }
+
+      .minus {
+        height: 0.2em;
+      }
+
+      p {
+        color: $Black;
+        font-weight: 700;
+        font-size: 1em;
+      }
+    }
+    button {
+      width: 16em;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1em;
+      border-radius: 0.5em;
+      border: none;
+      color: $Pale-orange;
+      background-color: $Orange;
+      font-weight: 700;
+      font-size: 1em;
+
+      .btn-img {
+        // filter: invert(1) sepia(1) saturate(50) hue-rotate(25deg);
+      }
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
 }

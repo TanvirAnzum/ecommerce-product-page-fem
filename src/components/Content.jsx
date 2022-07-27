@@ -5,7 +5,19 @@ import iconPlus from '../images/icon-plus.svg'
 
 
 
-function Content() {
+function Content(props) {
+
+  const decreaseCounter = () => {
+    if(!props.itemCounter) return;
+    else {
+      props.setItemCounter(props.itemCounter - 1);
+    }
+  }
+
+  const increaseCounter = () => {
+    props.setItemCounter(props.itemCounter + 1);  
+  }
+
   return (
     <div className="Content">
       <h3>sneaker company</h3>
@@ -19,12 +31,12 @@ function Content() {
 
       <div className="content-buttons">
         <div className='content-counter'>
-          <img src={iconMinus} alt="" />
-          <p>value</p>
-          <img src={iconPlus} alt="" />
+          <img onClick={decreaseCounter} className='minus' src={iconMinus} alt="" />
+          <p>{props.itemCounter}</p>
+          <img onClick={increaseCounter}  src={iconPlus} alt="" />
         </div>
         <button>
-          <img src={iconCart} alt="" />
+          <img className='btn-img' src={iconCart} alt="" />
           Add to Cart
         </button>
       </div>

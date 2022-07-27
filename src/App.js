@@ -6,18 +6,25 @@ import Nav from "./components/Nav";
 
 function App() {
   const [productThumb,setProductThumb] = useState(null);
+  const [cartItems,setCartItems] = useState(null);
+  const [itemCounter, setItemCounter] = useState(0);
 
   return (
     <div className="App">
      <Nav 
      cartImg = {productThumb}
-     itemCount = {3}
+     itemCounter = {itemCounter}
+     cartItems = {cartItems}
      />
      <ImageSlider
      productThumb = {productThumb}
      setProductThumb = {setProductThumb}
      />
-     <Content />
+     <Content
+     itemCounter = {itemCounter}
+     setItemCounter = {setItemCounter}
+     setCartItems = {setCartItems}
+     />
     </div>
   );
 }
